@@ -5,11 +5,11 @@ require 'pay/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'pay'
+  s.name        = 'pay-mongoid'
   s.version     = Pay::VERSION
   s.authors     = ['Jason Charnes', 'Chris Oliver', 'Merlescu Codez']
   s.email       = ['jason@thecharnes.com', 'excid3@gmail.com', 'andrei+github@merlescu.net']
-  s.homepage    = 'https://github.com/amerlescucodez/pay'
+  s.homepage    = 'https://github.com/amerlescucodez/pay-mongoid'
   s.summary     = 'A Ruby on Rails subscription engine.'
   s.description = 'A Ruby on Rails subscription engine.'
   s.license     = 'MIT'

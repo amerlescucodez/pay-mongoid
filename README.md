@@ -24,7 +24,8 @@ Want to add a new payment provider? Contributions are welcome and the instructio
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pay'
+gem 'mongoid'
+gem 'pay-mongoid', git: 'https://github.com/amerlescucodez/pay-mongoid.git'
 
 # To use Stripe, also include:
 gem 'stripe', '< 5.0', '>= 2.8'
@@ -46,24 +47,14 @@ $ bundle
 Or install it yourself as:
 
 ```bash
-$ gem install pay
+$ gem install pay-mongoid -s 'https://github.com/amerlescucodez/pay-mongoid.git'
 ```
 
 ## Setup
 
 #### Migrations
 
-This engine will create a subscription model and the neccessary migrations for the model you want to make "billable." The most common use case for the billable model is a User.
-
-To add the migrations to your application, run the following migration:
-
-`$ bin/rails pay:install:migrations`
-
-This will install three migrations:
-
-- db/migrate/create_subscriptions.pay.rb
-- db/migrate/add_fields_to_users.pay.rb
-- db/migrate/create_charges.pay.rb
+One of the perks of using Mongoid is the fact that migrations are a PITA and therefore unnecessary. Surely that's not the legit reason, but it certainly does speed up development if you find migrations tedeous. 
 
 #### The User Model
 
@@ -73,11 +64,7 @@ If you do not have a `User` model defined, Pay will create a `users` table and y
 
 #### Non-User Model
 
-If you need to use a model other than `User`, check out the [wiki page](https://github.com/jasoncharnes/pay/wiki/Model-Other-Than-User).
-
-#### Run the Migrations
-
-Finally, run the migrations with `$ rake db:migrate`
+If you need to use a model other than `User`, check out the [wiki page](https://github.com/amerlescucodez/pay-mongoid/wiki/Model-Other-Than-User).
 
 #### Getting NoMethodError?
 
@@ -113,8 +100,9 @@ Include the `Pay::Billable` module in the model you want to know about subscript
 
 ```ruby
 # app/models/user.rb
-class User < ActiveRecord::Base
+class User
   include Pay::Billable
+  include Mongoid::Document
 end
 ```
 
@@ -435,6 +423,7 @@ end
 
 - [Jason Charnes](https://twitter.com/jmcharnes)
 - [Chris Oliver](https://twitter.com/excid3)
+- [Merlescu Codez](https://github.com/amerlescucodez)
 
 ## Contributing
 
