@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pay (1.0.0.beta4)
+    pay (1.0.1)
       rails (>= 4.2)
       rails-html-sanitizer (~> 1.0.4)
 
@@ -54,6 +54,7 @@ GEM
     arel (9.0.0)
     braintree (2.94.0)
       builder (>= 2.0.0)
+    bson (4.4.2)
     builder (3.2.3)
     byebug (10.0.2)
     coderay (1.1.2)
@@ -86,18 +87,23 @@ GEM
     minitest (5.11.3)
     mocha (1.8.0)
       metaclass (~> 0.0.1)
+    mongo (2.8.0)
+      bson (>= 4.4.2, < 5.0.0)
+    mongoid (7.0.2)
+      activemodel (>= 5.1, < 6.0.0)
+      mongo (>= 2.5.1, < 3.0.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
     nio4r (2.3.1)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.2)
@@ -133,7 +139,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.13)
     stripe (4.7.0)
       faraday (~> 0.13)
       net-http-persistent (~> 3.0)
@@ -165,9 +170,9 @@ DEPENDENCIES
   bundler (< 2)
   byebug
   mocha
+  mongoid
   pay!
   pry
-  sqlite3 (~> 1.3.6)
   stripe (>= 2.8, < 5.0)
   stripe-ruby-mock (~> 2.5)
   stripe_event (~> 2.2)

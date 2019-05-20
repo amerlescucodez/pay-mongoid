@@ -3,6 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
+require 'mongoid'
 require "pay"
 
 module Dummy

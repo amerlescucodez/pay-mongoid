@@ -1,6 +1,7 @@
 module Pay
-  class Subscription < ApplicationRecord
-    self.table_name = Pay.subscription_table
+  require 'mongoid'
+  class Subscription
+    include Mongoid::Document
 
     # Associations
     belongs_to :owner, class_name: Pay.billable_class, foreign_key: :owner_id
@@ -19,7 +20,7 @@ module Pay
     scope :on_grace_period, ->{ cancelled.where("? < ends_at", Time.zone.now) }
     scope :active, ->{ where(ends_at: nil).or(on_grace_period).or(on_trial) }
 
-    attribute :prorate, :boolean, default: true
+    field :prorate, type: Boolean, default: true
 
     def no_prorate
       self.prorate = false
