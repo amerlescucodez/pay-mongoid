@@ -10,9 +10,9 @@ module Pay
       has_many :charges, class_name: Pay.chargeable_class, foreign_key: :owner_id, inverse_of: :owner
       has_many :subscriptions, class_name: Pay.subscription_class, foreign_key: :owner_id, inverse_of: :owner
 
-      attribute :plan, :string
-      attribute :quantity, :integer
-      attribute :card_token, :string
+      field :plan, type: String
+      field :quantity, type: Integer
+      field :card_token, type: String
     end
 
     def customer

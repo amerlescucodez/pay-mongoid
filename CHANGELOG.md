@@ -1,5 +1,9 @@
 ### Unreleased
 
+### 1.0.1 - 2019-05-19
+
+* Introduces mongoid support as alternative orm to active record
+
 ### 1.0.0.beta4 - 2019-03-26
 
 * Makes `stripe?`, `braintree?`, and `paypal?` helper methods always

@@ -9,16 +9,8 @@ class Pay::Test < ActiveSupport::TestCase
     assert Pay.billable_class, 'User'
   end
 
-  test 'default billable table is users' do
-    assert Pay.billable_table, 'users'
-  end
-
   test 'default chargeable class is Charge' do
     assert Pay.chargeable_class, 'Pay::Charge'
-  end
-
-  test 'default chargeable table is charges' do
-    assert Pay.chargeable_table, 'charges'
   end
 
   test 'can set business name' do

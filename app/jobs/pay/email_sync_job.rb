@@ -5,7 +5,7 @@ module Pay
     def perform(id)
       billable = Pay.user_model.find(id)
       billable.sync_email_with_processor
-    rescue ActiveRecord::RecordNotFound
+    rescue
       Rails.logger.info "Couldn't find a #{Pay.billable_class} with ID = #{id}"
     end
   end
